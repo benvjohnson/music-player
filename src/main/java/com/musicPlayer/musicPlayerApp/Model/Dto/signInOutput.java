@@ -1,4 +1,4 @@
-package com.musicPlayer.musicPlayerApp.Model;
+package com.musicPlayer.musicPlayerApp.Model.Dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
