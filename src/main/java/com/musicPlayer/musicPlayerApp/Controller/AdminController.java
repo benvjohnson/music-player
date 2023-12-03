@@ -7,8 +7,11 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.musicPlayer.musicPlayerApp.Model.Admin;
+import com.musicPlayer.musicPlayerApp.Model.Dto.signInInput;
 import com.musicPlayer.musicPlayerApp.Model.Dto.signInOutput;
 import com.musicPlayer.musicPlayerApp.Service.AdminService;
+
+import jakarta.validation.Valid;
 
 
 @RestController
@@ -19,13 +22,22 @@ public class AdminController {
     AdminService adminService;
 
     /**
-     * Controller Function to Sign in and Sign Out  As Admin
+     * Controller Function to Register a Admin
      */
 
     @PostMapping("admin/signup")
     public signInOutput signUpAppAdmin(@RequestBody Admin admin)
     {
         return adminService.signUpAdmin(admin);
+    }
+
+    /**
+     * Controller Function to Sign in as Admin
+     */
+
+    @PostMapping("admin/signin")
+    public String signInAppAdmin (@RequestBody @Valid signInInput signInput){
+        return adminService.signInAdmin(signInput);
     }
     
 
